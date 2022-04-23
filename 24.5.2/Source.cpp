@@ -33,21 +33,22 @@ int main()
   system ("cls");
   std::time_t time = std::time (nullptr);
   std::tm local = *std::localtime (&time);
+
   std::vector <Birthday> nearestBirthdays;
   std::vector <Birthday> todayBirthdays;
+
   int currentDay = convertToDays (local);
+
   for (int i = 0;i < Notebook.size();++i)
   { 
 	 int differenceDays;
 	 if (isLeap(Notebook[i].date.tm_year + 1900) && Notebook[i].date.tm_mon > 1)
 	 {
 		 differenceDays = convertToDays(Notebook[i].date) - currentDay - 1;
-		 
 	 }
 	 else
 	 {
-		 differenceDays = convertToDays(Notebook[i].date) - currentDay;
-		 
+		 differenceDays = convertToDays(Notebook[i].date) - currentDay; 
 	 }
 	 if (differenceDays == 0)
 	 {
